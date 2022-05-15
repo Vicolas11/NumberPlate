@@ -1,0 +1,90 @@
+<div class="container">
+    <!-- Profile Edit -->
+    <form id="profile_update">
+        {% csrf_token %}
+        <div class="container">
+            <!-- Display Alert Message -->
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="alert" role="alert">
+                        </div> 
+                    </div>									 
+                </div>								
+            </div>
+            <!-- End Alert Message -->
+            <div class="row mb-3 mt-2">
+                <div class="col text-secondary">
+                    <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name" value={{ user.first_name }} required />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col text-secondary">
+                    <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name" value={{ user.last_name }} required/>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col text-secondary">
+                    <select class="form-select mb-3" value={{ user.gender }} id="gender" name="gender">
+                        {% for gen in Gender %}
+                            <option value={{ gen }} {% if gen == user.gender %}selected{% endif %}>{{ gen }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col text-secondary">
+                    <input type="text" class="form-control" placeholder="Phone Number"  id="contact" name="contact" value={{ user.contact }} required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="submit" class="btn btn-primary px-4" value="Update" style="background: #64a19d; border: none; font-size: 0.8rem;">
+                </div>
+            </div>    
+        </div>               
+    </form>
+    <hr> 
+    <!-- Change Password -->
+    <form id="changePassword">
+        {% csrf_token %}
+        <div class="container">
+            <h5>Change Password</h5>							 
+            <!-- Display Alert Message -->
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="alert_change_psw" role="alert">
+                        </div> 
+                    </div>									 
+                </div>								
+            </div>
+            <!-- End Alert Message -->
+            <div class="row mb-3 mt-2">
+                <div class="col text-secondary">										
+                    <input type="password" class="form-control" id="old_password" name="old_password" placeholder="Old Password" required/>
+                    <i onclick="changePasswordToggled('old_password','togglePassword')" class="far fa-eye" id="togglePassword" style="float: right; cursor: pointer; margin-top: -24px; margin-right: 15px;"></i>		
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col text-secondary">
+                    <input type="password" class="form-control" id="new_password" name="new_password" placeholder="New Password" required/>
+                    <i onclick="changePasswordToggled('new_password','togglePassword1')" class="far fa-eye" id="togglePassword1" style="float: right; cursor: pointer; margin-top: -24px; margin-right: 15px;"></i>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col text-secondary">
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm New Password" required/>
+                    <i onclick="changePasswordToggled('confirm_password','togglePassword2')" class="far fa-eye" id="togglePassword2" style="float: right; cursor: pointer; margin-top: -24px; margin-right: 15px;"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="submit" class="btn btn-primary px-4" value="Change Password" style="background: #64a19d; border: none; font-size: 0.8rem;">
+                </div>
+            </div>
+        </div>	
+    </form>	
+</div>

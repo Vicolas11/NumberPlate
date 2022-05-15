@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Home{% endblock %}
+
+{% block content %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Automatic Number Plate Recognition</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">ANPR Systems aim to detect car plates from input image and read the license plate number.</h2>
+                <a class="btn btn-primary" href="{% url 'recognize:signup_user' %}">Get Started</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock content %}
