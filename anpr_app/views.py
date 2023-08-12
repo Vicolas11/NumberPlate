@@ -84,7 +84,6 @@ def logout_request(request):
 	logout(request)
 	return redirect("home")
 
-
 def plate_number_processed(request):
     if request.method == 'POST':
         file = request.FILES.get('myfile', False)
@@ -101,7 +100,7 @@ def plate_number_processed(request):
             imgFile = Photo(img=img_)            
                             
             queryshot = VehicleOwner.objects.filter(plate_number__exact=licease_num)
-            if queryshot.exists():                    
+            if queryshot.exists():          
                 return HttpResponse(json.dumps({
                     "status": "true", 
                     'plate': licease_num, 

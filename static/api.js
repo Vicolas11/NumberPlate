@@ -242,7 +242,7 @@ if (signin) {
         });
     });
 }
-
+/*
 //Signout
 function signout() {
     $.ajax({
